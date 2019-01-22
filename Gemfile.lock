@@ -96,6 +96,7 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
+    pg (1.1.4)
     puma (3.11.4)
     rack (2.0.6)
     rack-test (1.1.0)
@@ -160,6 +161,8 @@ GEM
       rdoc (~> 4.0)
     spring (2.0.2)
       activesupport (>= 4.2)
+    spring-commands-rspec (1.0.4)
+      spring (>= 0.9.1)
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -196,13 +199,15 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   listen (~> 3.1.0)
+  pg (~> 1.1.0)
   puma (~> 3.11.0)
   rails (~> 5.2.0)
   rspec-rails (~> 3.8.0)
   sassc (~> 1.12.0)
   sdoc (~> 0.4.0)
   spring
-  sqlite3
+  spring-commands-rspec (~> 1.0.0)
+  sqlite3 (~> 1.3.0)
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
