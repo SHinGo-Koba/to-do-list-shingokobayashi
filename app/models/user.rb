@@ -12,4 +12,10 @@ class User < ApplicationRecord
     uniqueness: { case_sensitive: false },
     length: { maximum: 255 },
     format: { with: VALID_EMAIL_REGEX }
+  validates :password,
+    length: { minimum: 6 },
+    format: { without: /\s/, message: "is not allowed with any white space" }
+  validates :password_confirmation,
+    presence: true
+    
 end
