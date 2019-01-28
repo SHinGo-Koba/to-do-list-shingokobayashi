@@ -4,7 +4,15 @@ class SessionsController < ApplicationController
   end
   
   def create
-    user = User.find_by(name: params[:sesssion][:name])
+    @user = User.find_by(name: params[:sesssion][:name])
+    
+    respond_to do |f|
+      if @user && @user.authenticate(params[:session][:password])
+        f.html { redirect_to user_path(current_user.id), notice: "Login successfully" }
+      else
+        f.html { render :new, notice: "Invalid name or password" }
+      end
+    end
   end
   
   def destroy
