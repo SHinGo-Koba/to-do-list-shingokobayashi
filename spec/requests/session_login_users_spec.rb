@@ -19,7 +19,7 @@ RSpec.describe "SessionLoginUsers", type: :request do
         }}
       expect(response).to have_http_status(302)
       follow_redirect!
-      expect(current_path).to eq user_path
+      expect(response).to render_template "users/show"
       expect(response.body).to include CGI.escapeHTML("Login successfully")
             
     end

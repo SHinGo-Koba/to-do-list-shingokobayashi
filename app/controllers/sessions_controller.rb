@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
     
     respond_to do |f|
       if @user && @user.authenticate(params[:session][:password])
-        f.html { redirect_to user_path(current_user.id), notice: "Login successfully" }
+        log_in @user
+        f.html { redirect_to user_path(@current_user.id), notice: "Login successfully" }
       else
         f.html { render :new, notice: "Invalid name or password" }
       end
