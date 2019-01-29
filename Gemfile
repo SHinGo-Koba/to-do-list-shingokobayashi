@@ -37,7 +37,8 @@ group :development, :test do
   gem 'byebug'
   gem 'sqlite3', '~>1.3.0'
   gem 'rspec-rails', '~> 3.8.0'
-
+  gem 'factory_bot_rails', '~> 4.11.0'
+  
 end
 
 group :development do

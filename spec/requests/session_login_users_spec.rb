@@ -9,11 +9,13 @@ RSpec.describe "SessionLoginUsers", type: :request do
   end
   
   describe "POST /login" do
+    let!(:user1){ create(:user) }
     it "works with name and password" do
+      puts User.all.inspect
       post login_path,
         params: { session: {
-          name: "dave",
-          password: "dave1234"
+          name: user1.name,
+          password: user1.password
         }}
       expect(response).to have_http_status(302)
       follow_redirect!
