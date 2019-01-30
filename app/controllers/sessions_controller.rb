@@ -9,14 +9,26 @@ class SessionsController < ApplicationController
     respond_to do |f|
       if @user && @user.authenticate(params[:session][:password])
         log_in @user
-        f.html { redirect_to user_path(@current_user.id), notice: "Login successfully" }
+        flash[:success] = "Login successfully"
+        f.html { redirect_to user_path(@current_user.id) }
       else
-        f.html { render :new, notice: "Invalid name or password" }
+        flash.now[:danger] = "Invalid name or password"
+        f.html { render :new }
       end
     end
   end
   
   def destroy
+    respond_to do |f|
+      if log_in?
+        session[:user_id] = nil
+        @current_user = nil
+        flash[:success] = "Logout successfully" 
+      else
+        flash[:danger] = "Login first"
+      end
+      f.html redirect_to login_path
+    end
   end
   
 end

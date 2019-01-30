@@ -22,7 +22,7 @@ RSpec.describe "Users", type: :request do
     end.to change(User, :count).by(1)
     expect(response).to have_http_status(302)
     follow_redirect!
-    expect(response).to have_http_status(200)
+    expect(response).to render_template "users/show"
     expect(response.body).to include("User was successfully")
     puts User.all.inspect
     end

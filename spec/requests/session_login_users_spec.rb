@@ -21,7 +21,26 @@ RSpec.describe "SessionLoginUsers", type: :request do
       follow_redirect!
       expect(response).to render_template "users/show"
       expect(response.body).to include CGI.escapeHTML("Login successfully")
-            
+    end
+    
+    it "doesn't work because of invalid name or password" do
+      puts User.all.inspect
+      post login_path,
+        params: { session: {
+          name: user1.name,
+          password: "user11234"
+        }}
+      expect(response).to render_template "sessions/new"
+      expect(response.body).to include CGI.escapeHTML("Invalid name or password")
+
+      post login_path,
+        params: { session: {
+          name: user1.name,
+          password: nil
+        }}
+      expect(response).to render_template "sessions/new"
+      expect(response.body).to include CGI.escapeHTML("Invalid name or password")
+
     end
   end
 end
