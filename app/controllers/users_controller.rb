@@ -29,12 +29,14 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         log_in @user
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user }
         format.json { render :show, status: :created, location: @user }
+        flash[:success] = "User was successfully created"
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
         @user.errors.full_messages.each { |m| puts m }
+        flash.now[:danger] = "Sign up failed"
       end
     end
   end
