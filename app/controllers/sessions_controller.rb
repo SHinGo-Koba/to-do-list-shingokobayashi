@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
       else
         flash[:danger] = "Login first"
       end
-      f.html redirect_to login_path
+      f.html { redirect_to login_path }
     end
   end
   

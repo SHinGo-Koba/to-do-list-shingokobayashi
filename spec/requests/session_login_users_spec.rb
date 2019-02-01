@@ -40,7 +40,39 @@ RSpec.describe "SessionLoginUsers", type: :request do
         }}
       expect(response).to render_template "sessions/new"
       expect(response.body).to include CGI.escapeHTML("Invalid name or password")
-
     end
   end
+  
+  describe "DELETE/logout" do
+    let!(:user1){ create(:user) }
+    it "works" do
+      puts User.all.inspect
+      post login_path,
+        params: { session: {
+          name: user1.name,
+          password: user1.password
+        }}
+      expect(response).to have_http_status(302)
+      follow_redirect!
+      expect(response).to render_template "users/show"
+      expect(response.body).to include CGI.escapeHTML("Login successfully")
+      
+      delete logout_path
+      expect(response).to have_http_status(302)
+      follow_redirect!
+      expect(response).to render_template "sessions/new"
+      expect(response.body).to include CGI.escapeHTML("Logout successfully")
+    end
+    
+    it "doesn't work because not login yet" do
+      puts User.all.inspect
+      delete logout_path
+      expect(response).to have_http_status(302)
+      follow_redirect!
+      expect(response).to render_template "sessions/new"
+      expect(response.body).to include CGI.escapeHTML("Login first")
+    end
+    
+  end
+  
 end
