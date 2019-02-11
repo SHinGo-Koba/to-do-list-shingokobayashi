@@ -53,6 +53,13 @@ group :development do
   gem 'listen', '~> 3.1.0'
 end
 
+group :test do
+  gem 'capybara', '~> 3.13.0'
+  gem 'selenium-webdriver', '~> 3.14.0'
+  gem 'chromedriver-helper', '~> 2.0.0'
+  gem 'launchy', '~> 2.4.0'
+end
+
 group :production do
   gem 'pg', '~> 1.1.0'
 end
