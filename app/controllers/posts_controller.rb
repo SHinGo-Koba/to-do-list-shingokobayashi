@@ -4,9 +4,9 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     
-    respond_to do |f|
+    respond_to do |format|
       if @post.save
-        f.js
+        format.js
       else
         flash.now[:danger] = "Failed to post"
       end
@@ -19,6 +19,6 @@ class PostsController < ApplicationController
   
   private
     def post_params
-      params.require(:post).permit(:content).merge(user_id: current_user.id)
+      params.require(:post).permit(:content, :due).merge(user_id: current_user.id)
     end
 end

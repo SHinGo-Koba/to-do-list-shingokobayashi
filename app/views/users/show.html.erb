@@ -1,12 +1,20 @@
 <p>
   <strong>Name:</strong>
-  <%= @user.name %>
+  <%= @current_user.name %>
 </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<%= form_for @post, url: posts_path, remote: true do |f| %>
+  <%= f.text_field :content %>
+  <%= f.date_select :due %>
+  <%= f.submit "Submit" %>
+<% end %>
+
+<% if @posts.any? %>
+  <% @posts.each do |post| %>
+    <%= post.content %>
+    <%= post.due %>
+  <% end %>
+<% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
