@@ -70,7 +70,7 @@ RSpec.describe "SessionLoginUsers", type: :request do
       expect(response).to have_http_status(302)
       follow_redirect!
       expect(response).to render_template "sessions/new"
-      expect(response.body).to include CGI.escapeHTML("Login first")
+      expect(response.body).to include CGI.escapeHTML("Please login")
     end
     
   end

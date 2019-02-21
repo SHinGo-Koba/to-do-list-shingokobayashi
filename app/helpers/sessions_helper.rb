@@ -4,7 +4,7 @@ module SessionsHelper
     session[:user_id] = user.id
   end
   
-  def log_in?
+  def logged_in?
     !session[:user_id].nil?
   end
 
@@ -17,7 +17,7 @@ module SessionsHelper
   end
   
   def need_to_login
-    if !log_in?
+    if !logged_in?
       respond_to do |f|
         f.html{ redirect_to login_path }
         f.js{ render js: "window.location = '#{login_path}'" }

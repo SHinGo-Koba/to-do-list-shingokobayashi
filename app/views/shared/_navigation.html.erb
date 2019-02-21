@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">To-do</a>
+  <buttun type="buttun" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </buttun>
+    
+  <div class="collapse navbar-collapse" id="navbar-collapse-1">
+    <ul class="navbar-nav mr-auto">
+        <% if logged_in? %>
+          <li class="nav-item active"><%= link_to "To-do-lists", user_path(current_user), class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Setting", "#", class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Logout", logout_path, class: "nav-link" %></li>
+        <% else %>
+          <li class="nav-item active"><%= link_to "Login", login_path, class: "nav-link" %></li>
+        <% end %>
+        <li class="nav-item"><%= link_to "FAQ", "#", class: "nav-link" %></li>
+      </ul>
+    </div>
+</nav>
