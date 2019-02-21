@@ -1,17 +1,14 @@
-<div class="col-sm-12">
 <%= form_for(:session, url: login_path) do |f| %>
   <div class="field form-group">
     <%= f.label "User name" %>
-    <%= f.text_field :name, class: "form-control col-sm-12" %>
+    <%= f.text_field :name, class: "form-control col" %>
   </div>
   <div class="field form-group">
     <%= f.label "Password" %>
-    <%= f.password_field :password, class: "form-control col-sm-12" %>
+    <%= f.password_field :password, class: "form-control col" %>
   </div>
   <div class="actions form-group">
     <%= f.submit "Login!", class: "btn btn-success" %>
     <%= link_to "Not sign up yet?", new_user_path, class: "btn btn-info" %>
   </div>
 <% end %>
-</div>
-

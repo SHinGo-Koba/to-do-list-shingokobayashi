@@ -1,5 +1,9 @@
-<div class="col-sm-12">
-  <% flash.each do |message_type, message| %>
-    <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-  <% end %>
+<div class="container-fluid p-0">
+  <div class="row no-gutters">
+    <div class="col">
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+      <% end %>
+    </div>
+  </div>
 </div>

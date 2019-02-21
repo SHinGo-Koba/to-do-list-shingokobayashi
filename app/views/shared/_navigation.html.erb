@@ -9,7 +9,7 @@
         <% if logged_in? %>
           <li class="nav-item active"><%= link_to "To-do-lists", user_path(current_user), class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "Setting", "#", class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Logout", logout_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Logout", logout_path, method: :delete, class: "nav-link" %></li>
         <% else %>
           <li class="nav-item active"><%= link_to "Login", login_path, class: "nav-link" %></li>
         <% end %>
