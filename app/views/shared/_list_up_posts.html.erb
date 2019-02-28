@@ -1,0 +1,6 @@
+<% @posts.each do |post| %>
+  <li class="list-group-item">
+    <b><%= post.content %></b>
+    Due: <%= post.due %>
+  </li>
+<% end %>

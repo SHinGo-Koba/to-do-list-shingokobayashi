@@ -1,15 +1,14 @@
 class PostsController < ApplicationController
   before_action :need_to_login
-
+  respond_to :js
+  
   def create
     @post = Post.new(post_params)
-    
-    respond_to do |format|
-      if @post.save
-        format.js
-      else
-        flash.now[:danger] = "Failed to post"
-      end
+    if @post.save
+      @posts = Post.where(user_id: current_user.id).order(due: :asc)
+      flash.now[:success] = "Posted successfully"
+    else
+      flash.now[:danger] = "Failed to post"
     end
   end
   

@@ -1,20 +1,23 @@
 <p>
-  <strong>Name:</strong>
+  <b>Name:</b>
   <%= @current_user.name %>
 </p>
-
-<%= form_for @post, url: posts_path, remote: true do |f| %>
-  <%= f.text_field :content %>
-  <%= f.date_select :due %>
-  <%= f.submit "Submit" %>
-<% end %>
+<div class="row">
+  <div class="col">
+    <%= form_for @post, url: posts_path, remote: true do |f| %>
+      <%= f.text_field :content %>
+      <%= f.date_select :due %>
+      <%= f.submit "Submit" %>
+  <% end %>
+  </div>
+</div>
 
 <% if @posts.any? %>
-  <% @posts.each do |post| %>
-    <%= post.content %>
-    <%= post.due %>
-  <% end %>
+  <div class="row">
+    <div class="col">
+      <ul id="ajax-result-post-create-1" class="list-group">
+        <%= render "shared/list_up_posts" %>
+      </ul>
+    </div>
+  </div>
 <% end %>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

@@ -11,12 +11,14 @@
   
   <%= render "shared/navigation" %>
   
-  <%= render "shared/alert" %>
+  <div id="ajax-result-flash">
+    <%= render "shared/alert" %>
+  </div>
   
   <div class="container-fluid">
     
       <div class="row">
-        <div class="col col-md-4">
+        <div class="col col-md-6">
           <%= yield %>
         </div>
       </div>
