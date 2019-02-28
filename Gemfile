@@ -32,9 +32,17 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use Bootstrap
 gem 'bootstrap', '~> 4.3.0'
 
+# Use for respond_to in Controller
 gem 'responders', '~> 2.4.0'
+
+# Use for calendar
+gem 'bootstrap-datepicker-rails', '~> 1.8.0'
+
+# Use for font-awesome
+gem "font-awesome-rails", '~> 4.7.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
