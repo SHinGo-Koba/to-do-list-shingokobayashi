@@ -13,7 +13,16 @@ class PostsController < ApplicationController
   end
   
   def destroy
-  
+    @post = Post.find_by(id: params[:id])
+    @user = User.find_by(id: @post.user_id)
+    if correct_user?(@user) && @post.destroy
+      @posts = Post.where(user_id: current_user.id).order(due: :asc)
+      flash.now[:success] = "Deleted successfully"
+    elsif correct_user?(@user)
+      flash.now[:danger] = "Failed to delete"
+    else
+      flash.now[:danger] = "Not allowed to access the post"
+    end
   end
   
   private

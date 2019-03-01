@@ -2,5 +2,6 @@
   <li class="list-group-item">
     <b><%= post.content %></b>
     Due: <%= post.due %>
+    <%= link_to "Delete", post_path(post.id), method: :delete, class: "btn btn-danger btn-sm float-right", remote: true, confirm: "Are you sure?" %>
   </li>
 <% end %>

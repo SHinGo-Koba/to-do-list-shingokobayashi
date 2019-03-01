@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   before_action :need_to_login, only: :destroy
   
   def new
+    redirect_to user_path(session[:user_id]) if logged_in?
   end
   
   def create
