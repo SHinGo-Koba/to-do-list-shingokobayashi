@@ -1,8 +1,6 @@
-<% if @posts %>
-  $("#ajax-result-post-create-1").html(
-    "<%= escape_javascript(render "shared/list_up_posts") %>"
-  );
-<% end %>
+$("#ajax-result-post-create-1").html(
+  "<%= escape_javascript(render "shared/list_up_posts") %>"
+);
 
 $("#ajax-result-flash").html(
   "<%= escape_javascript(render "shared/alert") %>"
