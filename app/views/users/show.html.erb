@@ -2,25 +2,21 @@
   <b>Name:</b>
   <%= @current_user.name %>
 </h3>
-<!--<div class="row">-->
-<!--  <div class="col">-->
-    <%= form_for @post, url: posts_path, remote: true, html: { class: "form-inline mb-3" } do |f| %>
-      <div class="form-group">
-        <%= f.text_field :content, class: "form-control", placeholder: "Anything to do", autocomplete: :off %>
-        <div class="input-group date">
-          <%= f.text_field :due, class: "form-control", placeholder: "Due", autocomplete: :off %>
-          <span class="input-group-addon p-1 mt-1 bg-light"><i class="far fa-calendar-alt fa-lg"></i></span>
-        </div>
-        <%= f.submit "Submit", class: "btn btn-primary" %>
-      </div>
-  <% end %>
-<!--  </div>-->
-<!--</div>-->
-
-  <div class="row">
-    <div class="col">
-      <ul id="ajax-result-post-create-1" class="list-group">
-        <%= render "shared/list_up_posts" %>
-      </ul>
+<%= form_for @post, url: posts_path, remote: true, html: { class: "form-inline mb-3" } do |f| %>
+  <div class="form-group">
+    <%= f.text_field :content, class: "form-control", placeholder: "Anything to do", autocomplete: :off %>
+    <div class="input-group date">
+      <%= f.text_field :due, class: "form-control", placeholder: "Due", autocomplete: :off %>
+      <span class="input-group-addon p-1 mt-1 bg-light"><i class="far fa-calendar-alt fa-lg"></i></span>
     </div>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
   </div>
+<% end %>
+
+<div class="row">
+  <div class="col">
+    <ul id="ajax-result-post-create-1" class="list-group">
+      <%= render "shared/list_up_posts" %>
+    </ul>
+  </div>
+</div>
