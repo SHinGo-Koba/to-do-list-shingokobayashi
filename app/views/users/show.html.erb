@@ -6,9 +6,9 @@
 <!--  <div class="col">-->
     <%= form_for @post, url: posts_path, remote: true, html: { class: "form-inline mb-3" } do |f| %>
       <div class="form-group">
-        <%= f.text_field :content, class: "form-control", placeholder: "Anything to do" %>
+        <%= f.text_field :content, class: "form-control", placeholder: "Anything to do", autocomplete: :off %>
         <div class="input-group date">
-          <%= f.text_field :due, class: "form-control", placeholder: "Due" %>
+          <%= f.text_field :due, class: "form-control", placeholder: "Due", autocomplete: :off %>
           <span class="input-group-addon p-1 mt-1 bg-light"><i class="far fa-calendar-alt fa-lg"></i></span>
         </div>
         <%= f.submit "Submit", class: "btn btn-primary" %>

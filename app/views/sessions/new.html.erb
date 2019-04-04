@@ -1,7 +1,7 @@
 <%= form_for(:session, url: login_path) do |f| %>
   <div class="field form-group">
     <%= f.label "User name" %>
-    <%= f.text_field :name, class: "form-control col" %>
+    <%= f.text_field :name, class: "form-control col", autocomplete: :off %>
   </div>
   <div class="field form-group">
     <%= f.label "Password" %>
